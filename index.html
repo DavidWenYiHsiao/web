@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Wen-Yi Hsiao - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .project {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>David Wen-Yi Hsiao</h1>
+        <p>Electrical Engineering Student</p>
+        <style>
+            .rotate-video {
+                transform: rotate(-90deg); /* Adjust the angle as needed */
+            }
+        </style>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a third year student in the Department of Electrical and Computer Engineering at University of British Columbia. My passion lies in designing hardware and electronic assemblies. In my leisure time, I enjoy both physical and sedentary activities. I am passionate about sports and regularly engage in activities like badminton and basketball. Furthermore, I also find great satisfaction in solitary hobbies, including playing Go, the Japanese board game, and experimenting with robot construction.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Remote Controlled Robot</h3>
+                <p>An autonomous robot, powered by a battery, uses a fluctuating magnetic field for remote control. The robot is equipped with a microcontroller system and offers two modes of operation. In "track mode," it maintains a constant distance from the magnetic transmitter and adjusts its position as needed. In "command mode," the robot receives instructions via the magnetic field from the controller and follows them.</p>
+                <div class="image-gallery">
+                    <img src="2.jpg" alt="Image 1" width="200" height="170" class="gallery-image">
+                    <img src="3.jpg" alt="Image 2" width="170" height="170" class="gallery-image">
+                </div>
+                <video width="400" controls>
+                    <source src="1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project">
+                <h3>Reflow Oven Controller</h3>
+                <p>A Reflow Oven Controller is a device that controls the temperature and timing of the reflow oven during the reflow soldering process. By regulating the temperature and timing of the oven, the controller ensures that the PCB is heated to the proper temperature for the optimal duration without damage, resulting in precise and dependable solder joints between the components and the PCB.</p>
+                <div class="image-gallery">
+                    <img src="4.jpg" alt="Image 1" width="350" height="300" class="gallery-image">
+                </div>
+
+                <video width="250" controls>
+                    <source src="2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <!-- Add more projects as needed -->
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            
+            <a href="www.linkedin.com/in/david-hsiao-1b9a5724a" target="_blank">
+                <img src="linkedin-icon.png" alt="LinkedIn" width="30" height="30">
+
+            </a>
+            
+            <a href="https://www.instagram.com/davidhsiao0821" target="_blank">
+                <img src="instagram-icon.png" alt="Instagram" width="30" height="30">
+
+            </a>
+
+            <a href="https://discordapp.com/users/davidhsiao0821" target="_blank">
+                <img src="discord-icon.png" alt="Discord" width="30" height="30">
+
+            </a>
+        </section>
+    </div>
+</body>
+</html>
