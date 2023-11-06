@@ -16,7 +16,7 @@
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 40px;
+            padding: 35px;
         }
 
         h1 {
@@ -27,13 +27,61 @@
             background-color: #444;
             color: #fff;
             text-align: center;
-            padding: 20px;
+            padding: 5px;
         }
 
         nav a {
             text-decoration: none;
             color: #fff;
             margin: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Style the dropdown button/link */
+        .dropdown a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Style the dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            min-width: 300px;
+            z-index: 1;
+            padding: 0;
+            left: 50%; /* Move the dropdown to the center of the container */
+            transform: translateX(-50%); /* Center the dropdown horizontally */
+        }
+
+        /* Remove list-style from the dropdown menu */
+        .dropdown-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Style the dropdown items */
+        .dropdown-content li {
+            padding: 10px;
+            list-style: none;
+        }
+
+        /* Change the color of dropdown items when hovered over */
+        .dropdown-content li:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Show the dropdown content when the dropdown is hovered over */
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .container {
@@ -50,6 +98,41 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Style the footer content */
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-content ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        /* Style the footer links */
+        .footer-content ul li a {
+            color: #fff;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -82,95 +165,149 @@
     </header>
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <ul>
+            <a href="#about">About Me</a>
+            <li class="dropdown">
+                <a href="#projects">Projects</a>
+                <ul class="dropdown-content">
+                    <li><a href="#RCR">Remote Controlled Robot</a></li>
+                    <li><a href="#ROV">Reflow Oven Controller</a></li>
+                    <li><a href="#CF">Two Signal Generator Outputs</a></li>
+                    <li><a href="#CR">Capacitor Value</a></li>
+                    <li><a href="#RT">Room Temperature</a></li>
+                    <li><a href="#A">Alarm</a></li>
+                </ul>
+            </li>
+            <a href="#contact">Contact</a>
+        </ul>
     </nav>
 
 
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a third year student in the Department of Electrical and Computer Engineering at University of British Columbia. My passion lies in designing hardware and electronic assemblies. In my leisure time, I enjoy both physical and sedentary activities. I am passionate about sports and regularly engage in activities like badminton and basketball. Furthermore, I also find great satisfaction in solitary hobbies, including playing Go, the Japanese board game, and experimenting with robot construction.</p>
+            <div class="project">
+                <p>I am a third year student in the Department of Electrical and Computer Engineering at University of British Columbia. My passion lies in designing hardware and electronic assemblies. In my leisure time, I enjoy both physical and sedentary activities. I am passionate about sports and regularly engage in activities like badminton and basketball. Furthermore, I also find great satisfaction in solitary hobbies, including playing Go, the Japanese board game, and experimenting with robot construction.</p>
+            </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
             <div class="project">
-                <h3>Remote Controlled Robot</h3>
-                <p>An autonomous robot, powered by a battery, uses a fluctuating magnetic field for remote control. The robot is equipped with a microcontroller system and offers two modes of operation. In "track mode," it maintains a constant distance from the magnetic transmitter and adjusts its position as needed. In "command mode," the robot receives instructions via the magnetic field from the controller and follows them.</p>
-                <div class="image-gallery">
-                    <img src="2.jpg" alt="Image 1" width="200" height="170" class="gallery-image">
-                    <img src="3.jpg" alt="Image 2" width="170" height="170" class="gallery-image">
-                </div>
-                <video width="400" controls>
-                    <source src="1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <section id="RCR">
+                    <h3>Remote Controlled Robot</h3>
+                    <p>An autonomous robot, powered by a battery, uses a fluctuating magnetic field for remote control. The robot is equipped with a microcontroller system and offers two modes of operation. In "track mode," it maintains a constant distance from the magnetic transmitter and adjusts its position as needed. In "command mode," the robot receives instructions via the magnetic field from the controller and follows them.</p>
+                    <div class="image-gallery">
+                        <img src="2.jpg" alt="Image 1" width="200" height="170" class="gallery-image">
+                        <img src="3.jpg" alt="Image 2" width="170" height="170" class="gallery-image">
+                    </div>
+                    <video width="400" controls>
+                        <source src="1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </section>
             </div>
 
             <div class="project">
-                <h3>Reflow Oven Controller</h3>
-                <p>A Reflow Oven Controller is a device that controls the temperature and timing of the reflow oven during the reflow soldering process. By regulating the temperature and timing of the oven, the controller ensures that the PCB is heated to the proper temperature for the optimal duration without damage, resulting in precise and dependable solder joints between the components and the PCB.</p>
-                <div class="image-gallery">
-                    <img src="4.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
-                </div>
+            <section id="ROV">
+                    <h3>Reflow Oven Controller</h3>
+                    <p>A Reflow Oven Controller is a device that controls the temperature and timing of the reflow oven during the reflow soldering process. By regulating the temperature and timing of the oven, the controller ensures that the PCB is heated to the proper temperature for the optimal duration without damage, resulting in precise and dependable solder joints between the components and the PCB.</p>
+                    <div class="image-gallery">
+                        <img src="4.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
+                    </div>
 
-                <video width="400" controls>
-                    <source src="2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                    <video width="400" controls>
+                        <source src="2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </section>
             </div>
 
             <div class="project">
-                <h3>Comparing Frequency, Peak Voltage, and Phase Difference of Two Signal Generator Outputs</h3>
-                <p>Verify the equality of two signal generator frequencies and report peak voltage, frequency, and phase difference.</p>
-                <div class="image-gallery">
-                    <img src="5.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
-                </div>
+                <section id="CF">
+                    <h3>Two Signal Generator Outputs</h3>
+                    <p>Verify the equality of two signal generator frequencies and report peak voltage, frequency, and phase difference.</p>
+                    <div class="image-gallery">
+                        <img src="5.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
+                    </div>
 
-                <video width="400" controls>
-                    <source src="3.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                    <video width="400" controls>
+                        <source src="3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </section>
             </div>
 
             <div class="project">
-                <h3>Determining Capacitor Value</h3>
-                <p>Assessing capacitance and presenting the reading on an LCD display.</p>
-                <video width="400" controls>
-                    <source src="4.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <section id="CR">
+                    <h3>Capacitor Value</h3>
+                    <p>Assessing capacitance and presenting the reading on an LCD display.</p>
+                    <video width="400" controls>
+                        <source src="4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </section>
             </div>
 
             <div class="project">
-                <h3>Measuring Room Temperature</h3>
-                <p>Measuring room temperature, displaying it on an LCD and Putty, and generating a Python plot of Temperature Over Time.</p>
-                <div class="image-gallery">
-                    <img src="6.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
-                </div>
-                <video width="400" controls>
-                    <source src="5.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <video width="400" controls>
-                    <source src="6.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <section id="RT">
+                    <h3>Room Temperature</h3>
+                    <p>Measuring room temperature, displaying it on an LCD and Putty, and generating a Python plot of Temperature Over Time.</p>
+                    <div class="image-gallery">
+                        <img src="6.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
+                    </div>
+                    <video width="400" controls>
+                        <source src="5.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video width="400" controls>
+                        <source src="6.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </section>
             </div>
 
             <div class="project">
-                <h3>Alarm</h3>
-                <p>Designing a flexible alarm system with LCD display, allowing customized time settings, and triggering alarms when scheduled times are reached.</p>
-                <video width="400" controls>
-                    <source src="7.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <section id="A">
+                    <h3>Alarm</h3>
+                    <p>Designing a flexible alarm system with LCD display, allowing customized time settings, and triggering alarms when scheduled times are reached.</p>
+                    <video width="400" controls>
+                        <source src="7.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </section>
             </div>
 
             <!-- Add more projects as needed -->
         </section>
     </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 David Wen-Yi Hsiao. All rights reserved.</p>
+            <section id="contact">
+            
+                <a href="https://www.linkedin.com/in/david-hsiao-1b9a5724a/" target="_blank">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="30" height="30">
+    
+                </a>
+    
+                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=davidhsiao92@gmail.com" target="_blank">
+                    <img src="gmail-icon.png" alt="Gmail" width="30" height="30">
+    
+                </a>
+                
+                <a href="https://www.instagram.com/davidhsiao0821" target="_blank">
+                    <img src="instagram-icon.png" alt="Instagram" width="30" height="30">
+    
+                </a>
+    
+                <a href="https://discordapp.com/users/davidhsiao0821" target="_blank">
+                    <img src="discord-icon.png" alt="Discord" width="30" height="30">
+    
+                </a>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>
