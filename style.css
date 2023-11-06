@@ -3,20 +3,6 @@
     padding: 0;
 }
 
-.main{
-    width:100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(1.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-}
-
-.navbar{
-    width: 1200px;
-    height: 75px;
-    margin: auto;
-}
-
 .icon{
     width: 200px;
     float: left;
@@ -40,3 +26,18 @@
     height: auto; /* Maintain the aspect ratio */
     margin: 5px; /* Add space between images */
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the dropdown button/link */
+.dropdown a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+}
+
+
+
