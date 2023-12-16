@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -90,12 +93,13 @@
         }
 
         .container {
-            max-width: 800px;
+            flex: 1;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            min-height: 100%; /* Adjusted property */
         }
 
         .project {
@@ -139,41 +143,64 @@
             color: #fff;
             text-decoration: none;
         }
+        .hidden {
+            display: none;
+        }
+        #contact .project {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* In case the images exceed the width of the container */
+        }
+
+        #contact .project a {
+            margin: 10px; /* Add some spacing between the images */
+        }
+        #resume .project {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #resume .gallery-image {
+            width: 150px; /* Adjust the width as needed */
+            height: auto; /* Maintain the aspect ratio */
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>David Wen-Yi Hsiao</h1>
         <p>Electrical Engineering Student at UBC</p>
-        <section id="contact">
             
-            <a href="https://www.linkedin.com/in/david-hsiao-1b9a5724a/" target="_blank">
-                <img src="linkedin-icon.png" alt="LinkedIn" width="30" height="30">
+        <a href="https://www.linkedin.com/in/david-hsiao-1b9a5724a/" target="_blank">
+            <img src="linkedin-icon.png" alt="LinkedIn" width="30" height="30">
 
-            </a>
+        </a>
 
-            <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=davidhsiao92@gmail.com" target="_blank">
-                <img src="gmail-icon.png" alt="Gmail" width="30" height="30">
+        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=davidhsiao92@gmail.com" target="_blank">
+            <img src="gmail-icon.png" alt="Gmail" width="30" height="30">
 
-            </a>
+        </a>
             
-            <a href="https://www.instagram.com/davidhsiao0821" target="_blank">
-                <img src="instagram-icon.png" alt="Instagram" width="30" height="30">
+        <a href="https://www.instagram.com/davidhsiao0821" target="_blank">
+            <img src="instagram-icon.png" alt="Instagram" width="30" height="30">
 
-            </a>
+        </a>
 
-            <a href="https://discordapp.com/users/davidhsiao0821" target="_blank">
-                <img src="discord-icon.png" alt="Discord" width="30" height="30">
+        <a href="https://discordapp.com/users/davidhsiao0821" target="_blank">
+            <img src="discord-icon.png" alt="Discord" width="30" height="30">
 
-            </a>
-        </section>
+        </a>
+            
     </header>
 
     <nav>
         <ul>
-            <a href="#about">About Me</a>
+            <a href="#about" onclick="clearSections(); showSection('about')">About Me</a>
             <li class="dropdown">
-                <a href="#projects">Projects</a>
+                <a href="#projects" onclick="clearSections(); showSection('projects')">Projects</a>
                 <ul class="dropdown-content">
                     <li><a href="#RCR">Remote Controlled Robot</a></li>
                     <li><a href="#ROV">Reflow Oven Controller</a></li>
@@ -186,8 +213,8 @@
                     <li><a href="#VEX">VEX Turning Point Robot</a></li>
                 </ul>
             </li>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
+            <a href="#resume" onclick="clearSections(); showSection('resume')">Resume</a>
+            <a href="#contact" onclick="clearSections(); showSection('contact')">Contact</a>
         </ul>
     </nav>
 
@@ -202,126 +229,108 @@
 
         <section id="projects">
             <h2>Projects ⚡</h2>
-            <div class="project">
-                <section id="RCR">
-                    <h3>Remote Controlled Robot 🏎️💨</h3>
-                    <p>An autonomous robot, powered by a battery, uses a fluctuating magnetic field for remote control. The robot is equipped with a microcontroller system and offers two modes of operation. In "track mode," it maintains a constant distance from the magnetic transmitter and adjusts its position as needed. In "command mode," the robot receives instructions via the magnetic field from the controller and follows them.</p>
-                    <div class="image-gallery">
-                        <img src="2.jpg" alt="Image 1" width="200" height="170" class="gallery-image">
-                        <img src="3.jpg" alt="Image 2" width="170" height="170" class="gallery-image">
-                    </div>
-                    <video width="400" controls>
-                        <source src="1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-            <section id="ROV">
-                    <h3>Reflow Oven Controller 📟</h3>
-                    <p>A Reflow Oven Controller is a device that controls the temperature and timing of the reflow oven during the reflow soldering process. By regulating the temperature and timing of the oven, the controller ensures that the PCB is heated to the proper temperature for the optimal duration without damage, resulting in precise and dependable solder joints between the components and the PCB.</p>
-                    <div class="image-gallery">
-                        <img src="4.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
-                    </div>
-
-                    <video width="400" controls>
-                        <source src="2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-                <section id="CF">
-                    <h3>Two Signal Generator Outputs 📡</h3>
-                    <p>Verify the equality of two signal generator frequencies and report peak voltage, frequency, and phase difference.</p>
-                    <div class="image-gallery">
-                        <img src="5.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
-                    </div>
-
-                    <video width="400" controls>
-                        <source src="3.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-                <section id="CR">
-                    <h3>Capacitor Value ⎶</h3>
-                    <p>Assessing capacitance and presenting the reading on an LCD display.</p>
-                    <video width="400" controls>
-                        <source src="4.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-                <section id="RT">
-                    <h3>Room Temperature 🌡️</h3>
-                    <p>Measuring room temperature, displaying it on an LCD and Putty, and generating a Python plot of Temperature Over Time.</p>
-                    <div class="image-gallery">
-                        <img src="6.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
-                    </div>
-                    <video width="400" controls>
-                        <source src="5.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <video width="400" controls>
-                        <source src="6.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-                <section id="A">
-                    <h3>Alarm ⏰</h3>
-                    <p>Designing a flexible alarm system with LCD display, allowing customized time settings, and triggering alarms when scheduled times are reached.</p>
-                    <video width="400" controls>
-                        <source src="7.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-                <section id="4DL">
-                    <h3>6-Digit Lock 🔒</h3>
-                    <p>Design a 6-digit lock using SystemVerilog and deploy it on an FPGA.</p>
-                    <video width="400" controls>
-                        <source src="8.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-                <section id="CLAW">
-                    <h3>Claw Bot🦾</h3>
-                    <p>Utilizing cardboard to construct a claw, coupled with an Arduino and servo motor for control, allows it to effectively grip a wide range of items. Additionally, Onshape was employed to model the prototype.</p>
-                    <div class="image-gallery">
-                        <img src="10.png" alt="Image 1" width="320" height="250" class="gallery-image">
-                    </div>
-                    <video width="200" controls>
-                        <source src="9.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </section>
-            </div>
-
-            <div class="project">
-                <section id="VEX">
-                        <h3>VEX Turning Point Robot 🤖</h3>
-                        <p>The aim of creating this robot is to enable the toggling of flags to red or blue, and scoring them for the Alliance whose color is toggled at the conclusion of the match. Robots can toggle low flags, while high flags can only be toggled by balls.</p>
-                        <div class="image-gallery">
-                            <img src="8.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
-                            <img src="9.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
-                        </div>
-                    </section>
+        
+            <div class="project" id="RCR">
+                <h3>Remote Controlled Robot 🏎️💨</h3>
+                <p>An autonomous robot, powered by a battery, uses a fluctuating magnetic field for remote control. The robot is equipped with a microcontroller system and offers two modes of operation. In "track mode," it maintains a constant distance from the magnetic transmitter and adjusts its position as needed. In "command mode," the robot receives instructions via the magnetic field from the controller and follows them.</p>
+                <div class="image-gallery">
+                    <img src="2.jpg" alt="Image 1" width="200" height="170" class="gallery-image">
+                    <img src="3.jpg" alt="Image 2" width="170" height="170" class="gallery-image">
                 </div>
+                <video width="400" controls>
+                    <source src="1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="ROV">
+                <h3>Reflow Oven Controller 📟</h3>
+                <p>A Reflow Oven Controller is a device that controls the temperature and timing of the reflow oven during the reflow soldering process. By regulating the temperature and timing of the oven, the controller ensures that the PCB is heated to the proper temperature for the optimal duration without damage, resulting in precise and dependable solder joints between the components and the PCB.</p>
+                <div class="image-gallery">
+                    <img src="4.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
+                </div>
+                <video width="400" controls>
+                    <source src="2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="CF">
+                <h3>Two Signal Generator Outputs 📡</h3>
+                <p>Verify the equality of two signal generator frequencies and report peak voltage, frequency, and phase difference.</p>
+                <div class="image-gallery">
+                    <img src="5.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
+                </div>
+
+                <video width="400" controls>
+                    <source src="3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="CR">
+                <h3>Capacitor Value ⎶</h3>
+                <p>Assessing capacitance and presenting the reading on an LCD display.</p>
+                <video width="400" controls>
+                    <source src="4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="RT">
+                <h3>Room Temperature 🌡️</h3>
+                <p>Measuring room temperature, displaying it on an LCD and Putty, and generating a Python plot of Temperature Over Time.</p>
+                <div class="image-gallery">
+                    <img src="6.jpg" alt="Image 1" width="385" height="200" class="gallery-image">
+                </div>
+                <video width="400" controls>
+                    <source src="5.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video width="400" controls>
+                    <source src="6.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="A">
+                <h3>Alarm ⏰</h3>
+                <p>Designing a flexible alarm system with LCD display, allowing customized time settings, and triggering alarms when scheduled times are reached.</p>
+                <video width="400" controls>
+                    <source src="7.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="4DL">
+                <h3>6-Digit Lock 🔒</h3>
+                <p>Design a 6-digit lock using SystemVerilog and deploy it on an FPGA.</p>
+                <video width="400" controls>
+                    <source src="8.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="CLAW">
+                <h3>Claw Bot 🦾</h3>
+                <p>Utilizing cardboard to construct a claw, coupled with an Arduino and servo motor for control, allows it to effectively grip a wide range of items. Additionally, Onshape was employed to model the prototype.</p>
+                <div class="image-gallery">
+                    <img src="10.png" alt="Image 1" width="320" height="250" class="gallery-image">
+                </div>
+                <video width="200" controls>
+                    <source src="9.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="project" id="VEX">
+                <h3>VEX Turning Point Robot 🤖</h3>
+                <p>The aim of creating this robot is to enable the toggling of flags to red or blue, and scoring them for the Alliance whose color is toggled at the conclusion of the match. Robots can toggle low flags, while high flags can only be toggled by balls.</p>
+                <div class="image-gallery">
+                    <img src="8.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
+                    <img src="9.jpg" alt="Image 1" width="300" height="250" class="gallery-image">
+                </div>
+            </div>
                 
             <!-- Add more projects as needed -->
         </section>
@@ -329,7 +338,31 @@
         <section id="resume">
             <h2>Resume 📝</h2>
             <div class="project">
-                <a href="resume.pdf" target="_blank" class="resume-link">Download Resume</a>
+                <p>Here is a link to my resume—feel free to download and review it. While I encourage you to explore the content, please refrain from copying, as all rights are reserved. Thank you for your understanding.</p>
+                <a href="resume.pdf" target="_blank" class="resume-link"><img src="resume-icon.png" alt="Image 1" width="300" height="250" class="gallery-image"></a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me 📬</h2>
+            <div class="project">
+                <p>Feel free to connect with me on social media:<Br></p>
+    
+                <a href="https://www.linkedin.com/in/david-hsiao-1b9a5724a/" target="_blank">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="30" height="30">
+                </a>
+                
+                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=davidhsiao92@gmail.com" target="_blank">
+                    <img src="gmail-icon.png" alt="Gmail" width="30" height="30">
+                </a>
+                
+                <a href="https://www.instagram.com/davidhsiao0821" target="_blank">
+                    <img src="instagram-icon.png" alt="Instagram" width="30" height="30">
+                </a>
+                
+                <a href="https://discordapp.com/users/davidhsiao0821" target="_blank">
+                    <img src="discord-icon.png" alt="Discord" width="30" height="30">
+                </a>
             </div>
         </section>
     </div>
@@ -361,6 +394,50 @@
                 </a>
             </section>
         </div>
+
+        <script>
+            function showSection(sectionId) {
+                var sections = document.querySelectorAll('.container section');
+                sections.forEach(function (section) {
+                    section.classList.add('hidden');
+                });
+
+                var selectedSection = document.getElementById(sectionId);
+                if (selectedSection) {
+                    selectedSection.classList.remove('hidden');
+                    window.location.hash = sectionId;
+                }
+            }
+
+            function clearSections() {
+                var sections = document.querySelectorAll('.container section');
+                sections.forEach(function (section) {
+                    section.classList.add('hidden');
+                });
+            }
+
+            function showProjectSection(projectId) {
+                var projectSections = document.querySelectorAll('.container .project');
+                projectSections.forEach(function (projectSection) {
+                    projectSection.classList.add('hidden');
+                });
+
+                var selectedProjectSection = document.getElementById(projectId);
+                if (selectedProjectSection) {
+                    selectedProjectSection.classList.remove('hidden');
+                    window.location.hash = projectId;
+                }
+            }
+
+            function clearProjectSections() {
+                var projectSections = document.querySelectorAll('.container .project');
+                projectSections.forEach(function (projectSection) {
+                    projectSection.classList.add('hidden');
+                });
+            }
+
+            showSection('about');
+        </script>
     </footer>
 </body>
 </html>
