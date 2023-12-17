@@ -123,7 +123,7 @@
         }
 
         .footer-content p {
-            font-size: 14px;
+            font-size: 16px;
             margin: 0;
         }
 
@@ -166,6 +166,20 @@
         #resume .gallery-image {
             width: 150px; /* Adjust the width as needed */
             height: auto; /* Maintain the aspect ratio */
+        }
+        #about-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+            font-weight: normal;
+            color: #000000;
+            text-align: left;
+        }
+        #resume-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+            font-weight: normal;
+            color: #333;
+            text-align: left;
         }
     </style>
 </head>
@@ -223,7 +237,9 @@
         <section id="about">
             <h2>About Me 🙂</h2>
             <div class="project">
-                <p>I am a third year student in the Department of Electrical and Computer Engineering at University of British Columbia. My passion lies in designing hardware and electronic assemblies. In my leisure time, I enjoy both physical and sedentary activities. I am passionate about sports and regularly engage in activities like badminton and basketball. Furthermore, I also find great satisfaction in solitary hobbies, including playing Go, the Japanese board game, and experimenting with robot construction.</p>
+                <p id="about-content" class="hidden">
+                    <span id="about-text"></span>
+                </p>
             </div>
         </section>
 
@@ -338,9 +354,10 @@
         <section id="resume">
             <h2>Resume 📝</h2>
             <div class="project">
-                <p>Here is a link to my resume—feel free to download and review it. While I encourage you to explore the content, please refrain from copying, as all rights are reserved. Thank you for your understanding.
-                <br>
-                <a href="resume.pdf" target="_blank" class="resume-link"><img src="resume-icon.png" alt="Image 1" width="300" height="250" class="gallery-image"></a>
+                <p id="resume-content" class="hidden">
+                    <span id="resume-text"></span>
+                    <br>
+                    <a href="resume.pdf" target="_blank" class="resume-link"><img src="resume-icon.png" alt="Image 1" width="300" height="250" class="gallery-image"></a>
                 </p>
             </div>
         </section>
@@ -348,7 +365,7 @@
         <section id="contact">
             <h2>Contact Me 📬</h2>
             <div class="project">
-                <p>Feel free to connect with me on social media:<Br></p>
+                <p style="text-align: center;">Feel free to connect with me on social media:<Br></p>
     
                 <a href="https://www.linkedin.com/in/david-hsiao-1b9a5724a/" target="_blank">
                     <img src="linkedin-icon.png" alt="LinkedIn" width="30" height="30">
@@ -365,9 +382,11 @@
                 <a href="https://discordapp.com/users/davidhsiao0821" target="_blank">
                     <img src="discord-icon.png" alt="Discord" width="30" height="30">
                 </a>
-                <p style="text-align: center;">If you have any suggestions, please return to my main page and select "Suggestions", or you can conveniently use the QR code provided below. Thank you!
+                <p style="text-align: center;">If you have any suggestions, please return to my main page and select 'Suggestions.' Alternatively, you can conveniently click the QR code provided below or scan the QR code to navigate back to my main website. Thank you!
                 <br>
-                <img src="QR-code.png" alt="resume-icon" width="150" height="150" style="display: inline-block; margin: 0 auto;">
+                <a href="https://davidwenyihsiao.github.io/link/" target="_blank">
+                    <img src="QR-code.png" alt="resume-icon" width="150" height="150" style="display: inline-block; margin: 0 auto;">
+                </a>
                 </p>
             </div>
         </section>
@@ -445,5 +464,34 @@
             showSection('about');
         </script>
     </footer>
+    <script>
+        function spellOutText(targetElementId, text) {
+            var targetElement = document.getElementById(targetElementId);
+            var index = 0;
+
+            function animate() {
+                if (index < text.length) {
+                    targetElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(animate, 40); // Adjust the delay (in milliseconds) between letters
+                }
+            }
+
+            animate();
+        }
+
+        // Call the function to spell out the text in the "About Me" section
+        spellOutText('about-text', "I am a third year student in the Department of Electrical and Computer Engineering at University of British Columbia. My passion lies in designing hardware and electronic assemblies. In my leisure time, I enjoy both physical and sedentary activities. I am passionate about sports and regularly engage in activities like badminton and basketball. Furthermore, I also find great satisfaction in solitary hobbies, including reading, playing Go, the Japanese board game, and experimenting with robot construction.");
+        setTimeout(function() {
+            document.getElementById('about-content').classList.remove('hidden');
+        }, 2000); // Adjust the delay to display the content after spelling out
+    </script>
+    <script>
+        // Call the function to spell out the text in the "Resume" section
+        spellOutText('resume-text', "Feel free to explore my resume by following this link, where you can download and review it. While I encourage you to delve into the content, kindly refrain from copying, as all rights are reserved. If you have any advice or tips for my resume, please don't hesitate to share! Thank you for your understanding.");
+        setTimeout(function () {
+            document.getElementById('resume-content').classList.remove('hidden');
+        }, 2000); // Adjust the delay to display the content after spelling out
+    </script>
 </body>
 </html>
